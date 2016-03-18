@@ -62,7 +62,7 @@ function apester_embed(md) {
         );
       newState.md.inline.tokenize(newState);
 
-      token = state.push('interaction', '');
+      token = state.push('apesterInteraction', '');
       token.apesterId = apesterId;
       token.service = service;
       token.level = state.level;
@@ -101,6 +101,6 @@ function tokenize_interaction(md) {
 }
 
 module.exports = function apester_plugin(md) {
-  md.renderer.rules.interaction = tokenize_interaction(md);
+  md.renderer.rules.apesterInteraction = tokenize_interaction(md);
   md.inline.ruler.before('emphasis', 'apester', apester_embed(md));
 };
